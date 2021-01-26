@@ -1,0 +1,47 @@
+{
+    "name": "m1guelpf/laravel-apple-login",
+    "description": "Plug-and-play Sign in with Apple for Laravel",
+    "keywords": [
+        "m1guelpf",
+        "laravel-apple-login"
+    ],
+    "homepage": "https://github.com/m1guelpf/laravel-apple-login",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miguel Piedrafita",
+            "email": "soy@miguelpiedrafita.com",
+            "role": "Developer",
+            "homepage": "https://miguelpiedrafita.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/auth": "^8.24",
+        "illuminate/contracts": "^8.0",
+        "illuminate/database": "^8.24",
+        "illuminate/support": "^8.24",
+        "laravel/socialite": "^5.1",
+        "lcobucci/jwt": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "M1guelpf\\LoginWithApple\\": "src"
+        }
+    },
+    "scripts": {
+        "cs": "php-cs-fixer fix . --config=.php_cs"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "M1guelpf\\LoginWithApple\\LoginWithAppleServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
