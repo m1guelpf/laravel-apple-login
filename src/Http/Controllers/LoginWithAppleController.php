@@ -21,7 +21,11 @@ class LoginWithAppleController
     {
         $appleUser = Socialite::driver('apple')->user();
 
-        $user = LoginWithApple::$retrieveUserCallback ? call_user_func(LoginWithApple::$retrieveUserCallback, $appleUser) : $this->getUserModel()->where('apple_id', $appleUser->getId())->first();
+        if (LoginWithApple::$retrieveUserCallback) {
+            $user = call_user_func(LoginWithApple::$retrieveUserCallback, $appleUser);
+        } else {
+            $user = $this->getUserModel()->where('apple_id', $appleUser->getId())->orWhere('email', $appleUser->getEmail())->first();
+        }
 
         if (! $user) {
             return redirect()->route('login');
