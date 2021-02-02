@@ -36,7 +36,6 @@ class SignInWithAppleProvider extends AbstractProvider implements ProviderInterf
 
     public function getAccessToken($code)
     {
-        dd("{$this->clientId}:{$this->clientSecret}");
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
             'headers' => [
                 'Authorization' => 'Basic '.base64_encode("{$this->clientId}:{$this->clientSecret}"),
